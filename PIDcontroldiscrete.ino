@@ -3,6 +3,7 @@
 #include <Adafruit_BNO055.h>
 
 Adafruit_BNO055 bno = Adafruit_BNO055(55);
+// SDA A4 - SCL A5 sensor pinout
 
 float reference = 0; 
 float samplePer = 0.06; 
