@@ -23,6 +23,11 @@ int counter = 0;
 
 void setup(void) {
   Serial.begin(9600);
+
+
+  pinMode(3, OUTPUT); // set pin 3 to 
+  pinMode(5, OUTPUT);
+
   if(!bno.begin()) {
     while(1);
   }
@@ -58,9 +63,14 @@ void loop(void) {
     if (abs(u) > threshold) {
       if (u > 0) {
         Serial.println("Right on"); // connect this to a solenoid GPIO
+        digitalWrite(3, HIGH);
       } else {
         Serial.println("Left on"); // connect this to a solenoid GPIO 
+        digitalWrite(5, HIGH);
       }
+    } else {
+      digitalWrite(3, LOW);
+      digitalWrite(5, LOW);
     }
   } else {
     errors[2 - counter] = error;
